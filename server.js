@@ -47,7 +47,10 @@ app.get("/api/assessments/:userId/latest", async (req, res) => {
 
 // --- Serve built frontend ---
 app.use(express.static(path.join(__dirname, "dist")));
-app.get("*", (_req, res) => res.sendFile(path.join(__dirname, "dist", "index.html")));
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, "0.0.0.0", () => console.log(`Up on ${PORT}`));
