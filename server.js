@@ -46,7 +46,6 @@ app.get("/api/assessments/:userId/latest", async (req, res) => {
 });
 
 app.get("/healthz", (_, res) => res.send("ok"));
-app.get("/", (_, res) => res.status(200).send("root ok"));
 // --- Serve built frontend ---
 app.use(express.static(path.join(__dirname, "dist")));
 app.get(/^\/(?!api(?:\/|$)|healthz$).*/, (_req, res) => {
