@@ -45,11 +45,13 @@ app.get("/api/assessments/:userId/latest", async (req, res) => {
   res.json({ ok: true, data });
 });
 
+app.get("/healthz", (_, res) => res.send("ok"));
 // --- Serve built frontend ---
 app.use(express.static(path.join(__dirname, "dist")));
-app.get("*", (_req, res) => {
+app.get(/^\/(?!api(?:\/|$)|healthz$).*/, (_req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
+
 
 
 const PORT = process.env.PORT || 8080;
