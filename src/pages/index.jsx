@@ -1,15 +1,9 @@
 import Layout from "./Layout.jsx";
-
 import Home from "./Home";
-
 import Assessment from "./Assessment";
-
 import Dashboard from "./Dashboard";
-
 import Checklist from "./Checklist";
-
 import Reports from "./Reports";
-
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
